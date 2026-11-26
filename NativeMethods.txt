@@ -1,0 +1,9 @@
+SetWinEventHook
+UnhookWinEvent
+GetWindowRect
+SetWindowPos
+IsWindowVisible
+EnumWindows
+MonitorFromWindow
+GetMonitorInfoW
+DwmGetWindowAttribute

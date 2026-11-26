@@ -1,0 +1,22 @@
+WindowSnap automatic elevated startup
+====================================
+
+Use Windows Task Scheduler to launch WindowSnap at sign-in with administrator privileges. After setup, the task should start without a UAC prompt at each logon.
+
+Create the task
+---------------
+
+1. Install or place WindowSnap in a stable folder that standard users cannot modify. The task will run the application with elevated privileges.
+2. Open Task Scheduler from the Start menu.
+3. Select **Create Task** (not **Create Basic Task**).
+4. On the **General** tab:
+   - Name the task `WindowSnap`.
+   - Select **Run only when user is logged on** so the tray icon and settings window can appear in your desktop session.
+   - Check **Run with highest privileges**.
+   - Use an administrator account that you sign in to.
+5. On the **Triggers** tab, select **New...**, then set **Begin the task** to **At log on**. Choose your account and save the trigger.
+6. On the **Actions** tab, select **New...**, choose **Start a program**, and browse to `WindowSnap.exe` in the folder where you installed it. Save the action.
+7. Select **OK** to save the task. Windows may ask for administrator approval while creating it.
+8. To check the setup, find the task in **Task Scheduler Library**, right-click it, and select **Run**. WindowSnap should appear in the system tray.
+
+The task runs interactively only while the selected account is signed in. If you use a standard account, an administrator must configure a task for an account with administrator rights; a task running as a different, signed-out account won't show its tray icon in your desktop session.
